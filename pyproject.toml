@@ -1,0 +1,57 @@
+[project]
+name = "openmun-opendata"
+version = "0.1.0"
+description = "Swiss reference data (BFS, municipalities, cantons) for OpenMun"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "OpenMun Project"}
+]
+keywords = ["switzerland", "bfs", "municipalities", "reference-data"]
+
+# Minimal dependencies for end users (just the public API)
+dependencies = []
+
+[project.optional-dependencies]
+# Development dependencies for data importers and regeneration
+dev = [
+    "openpyxl>=3.1.0",  # For Excel file reading (BFS data)
+    "pyyaml>=6.0",      # For YAML configuration
+    "requests>=2.31.0", # For downloading updates
+    "pytest>=7.4.0",    # For testing
+    "pytest-cov>=4.1.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["openmun_opendata*", "generated*"]
+exclude = ["tests*", "importers*", "sources*"]
+
+[tool.setuptools.package-data]
+"generated.bfs" = ["*.py"]
+"openmun_opendata" = ["*.py"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+
+[tool.coverage.run]
+source = ["openmun_opendata", "importers"]
+omit = ["*/tests/*", "*/test_*.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
