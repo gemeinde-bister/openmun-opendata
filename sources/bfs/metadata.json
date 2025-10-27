@@ -1,0 +1,30 @@
+{
+  "be-b-00.04-sg-01.xlsx": {
+    "description": "BFS Official Country and Territory Codes (Staaten- und Gebietsverzeichnis)",
+    "source": "Swiss Federal Statistical Office (BFS)",
+    "url": "https://www.bfs.admin.ch/bfs/de/home/statistiken/kataloge-datenbanken/publikationen.assetdetail.html",
+    "version": "2024",
+    "downloaded": "2025-10-21",
+    "license": "Open Government Data (OGD) Switzerland",
+    "sheets": {
+      "Stat_Geb": {
+        "description": "Countries and territories (Staaten und Gebiete)",
+        "columns": {
+          "A": "BFS Code",
+          "C": "ISO 3166-1 alpha-2",
+          "D": "ISO 3166-1 alpha-3",
+          "E": "Name (German short)",
+          "F": "Name (French short)",
+          "G": "Name (Italian short)",
+          "H": "Name (English short)",
+          "W": "Valid flag (J/N)"
+        }
+      }
+    },
+    "notes": [
+      "This is the official Swiss federal mapping of country codes",
+      "BFS codes are 4-digit codes used in Swiss government systems",
+      "Only entries with Valid='J' should be imported"
+    ]
+  }
+}
