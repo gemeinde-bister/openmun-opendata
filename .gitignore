@@ -55,6 +55,14 @@ generated/**/__pycache__/
 # (Users won't need to run importers)
 !generated/**/*.py
 
+# Cached geodata (users download themselves)
+sources/swisstopo/
+*.csv
+*.csv.zip
+
+# UV lock file
+uv.lock
+
 # Temporary files
 *.tmp
 *.bak

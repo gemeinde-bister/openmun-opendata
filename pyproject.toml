@@ -11,7 +11,9 @@ authors = [
 keywords = ["switzerland", "bfs", "municipalities", "reference-data"]
 
 # Minimal dependencies for end users (just the public API)
-dependencies = []
+dependencies = [
+    "pydantic>=2.0.0",  # For data validation and models
+]
 
 [project.optional-dependencies]
 # Development dependencies for data importers and regeneration
